@@ -128,16 +128,16 @@ export const schoolData = {
   },
 
   principalMessage: {
-    heading: "Message from the Principal",
+    heading: "Message from the Chairman",
     subheading: "Guiding young minds toward intellectual clarity and ethical leadership.",
-    designation: "Principal",
+    designation: "Chairman",
     institution: "Indira School, Nacharam",
     message: [
       "Welcome to Indira School. We believe that every child enters our campus with immense potential, natural curiosity, and a unique spark.",
       "Our core philosophy is centered on creating a balanced educational journey where academic diligence is harmonized with character building, physical vitality, and artistic expression.",
       "In an increasingly fast-paced world, we remain committed to timeless values: discipline, perseverance, respect, and continuous self-improvement. Together with our supportive parent community, we strive to build a foundation that empowers our students to face tomorrow with competence and courage."
     ],
-    note: "[Official Principal's Statement — Indira School Administration]"
+    note: "[Official Chairman's Statement — Indira School Administration]"
   },
 
   whyChooseUs: [
