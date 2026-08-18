@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@layer theme, base, components, utilities;
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Poppins', 'Inter', system-ui, sans-serif;
+
+  /* Custom Brand Palette: Deep Navy & Royal Blue */
+  --color-navy-950: #051329;
+  --color-navy-900: #0B2545;
+  --color-navy-850: #0F3057;
+  --color-navy-800: #133E87;
+  --color-navy-700: #1A52B8;
+  --color-navy-600: #2563EB;
+  --color-navy-100: #EEF4FF;
+  --color-navy-50: #F4F8FF;
+
+  /* Royal Blues */
+  --color-royal-900: #1E3A8A;
+  --color-royal-700: #1D4ED8;
+  --color-royal-600: #2563EB;
+  --color-royal-500: #3B82F6;
+  --color-royal-100: #DBEAFE;
+  --color-royal-50: #EFF6FF;
+
+  /* Subtle Gold Accents (Educational Elegance) */
+  --color-gold-700: #9A6E24;
+  --color-gold-600: #B48234;
+  --color-gold-500: #C5A059;
+  --color-gold-400: #D8B772;
+  --color-gold-300: #E6CE9C;
+  --color-gold-200: #F3E6C7;
+  --color-gold-100: #FAF4E6;
+  --color-gold-50: #FDFBF7;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: #1e293b;
+    background-color: #f8fafc;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Custom UI Utilities */
+.container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Subtle elevation card styles */
+.card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(11, 37, 69, 0.1), 0 4px 12px -2px rgba(11, 37, 69, 0.05);
+}
+
+/* Shimmer / gold border accents */
+.border-gold-gradient {
+  border-image: linear-gradient(to right, #C5A059, #E6CE9C, #C5A059) 1;
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
