@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PageHero from '../components/layout/PageHero';
-import SectionHeading from '../components/ui/SectionHeading';
 import NewsCard from '../components/ui/NewsCard';
 import AdmissionCTA from '../components/home/AdmissionCTA';
 import { schoolData } from '../data/schoolData';
-import { Search, Bell, Calendar } from 'lucide-react';
+import { Search, Bell, ArrowLeft } from 'lucide-react';
 
 export default function News() {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -19,21 +20,49 @@ export default function News() {
     return matchesCat && matchesSearch;
   });
 
+  const handleBack = () => {
+    if (window.history.length > 2) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
+  };
+
   return (
     <main id="main-content" className="w-full">
-      {/* Page Hero */}
+      {/* Page Hero with Back Button */}
       <PageHero
         badge="Official Circulars"
         title="News, Events & Circulars"
         subtitle="Official school announcements, academic schedules, and event updates for parents and students of Indira School."
         breadcrumbCurrent="News & Events"
+        showBackButton={true}
+        backLink="/"
+        backLabel="Back to Home"
       />
 
       {/* News & Events Section */}
-      <section className="py-16 sm:py-24 bg-slate-50 relative">
+      <section className="py-12 sm:py-20 bg-slate-50 relative">
         <div className="container-custom">
+          {/* Quick Back & Counter Bar */}
+          <div className="flex items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200">
+            <button
+              type="button"
+              onClick={handleBack}
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-[#0B2545] transition-colors cursor-pointer group"
+              aria-label="Back to Previous Page"
+            >
+              <ArrowLeft className="w-4 h-4 text-[#C5A059] transition-transform duration-200 group-hover:-translate-x-1" />
+              <span>Back to Previous Page</span>
+            </button>
+
+            <span className="text-xs text-slate-500 font-medium">
+              Showing <span className="font-bold text-[#0B2545]">{filteredNews.length}</span> circular{filteredNews.length === 1 ? '' : 's'}
+            </span>
+          </div>
+
           {/* Controls Bar: Category Pills + Search */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-12">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
             {/* Category Pills */}
             <div className="flex items-center flex-wrap gap-2">
               {categories.map((cat) => (
